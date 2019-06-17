@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function computerPlay() { 
+                let num = Math.random();
+                if (num <= .33) {
+                    return "rock";
+                }
+                else if (num <= .66) {
+                    return "scissors";
+                }
+                else {
+                    return "paper";
+                }
+            }
+
+            function userPlay() {
+                let str = prompt("Enter rock, paper, or scissors", "rock");
+                let str2 = str.toLowerCase();
+                if (str2 != "rock" && str2 != "paper" && str2 != "scissors") {
+                    console.log("Invalid answer, using rock instead");
+                    return "rock";
+                }
+                else {
+                    return str2;
+                }
+            }
+
+            function playRound(playerSelection, computerSelection) {
+                if ((playerSelection == "rock" && computerSelection == "rock") || (playerSelection == "scissors" && computerSelection == "scissors") || (playerSelection == "paper" && computerSelection == "paper")) {
+                    console.log("Tie!");
+                }
+                else if ((playerSelection == "rock" && computerSelection == "scissors") || (playerSelection == "scissors" && computerSelection == "paper") || (playerSelection == "paper" && computerSelection == "rock")) {
+                    console.log("User wins!");
+                    userScore++;;
+                }
+                else {
+                    console.log("Computer wins!");
+                    computerScore++;
+                }
+                console.log("User played " + playerSelection + " and the computer played " + computerSelection + ".");
+            }
+
+
+            let userScore = 0;
+            let computerScore = 0;
+
+            function game() {
+
+
+
+                while (userScore < 5 && computerScore < 5) {
+
+                const playerSelection = userPlay();
+                const computerSelection = computerPlay();
+                playRound(playerSelection, computerSelection);
+
+                console.log("The user's score is " + userScore + " and the computer's score is " + computerScore + ".");
+
+                }
+            }
+
+            game();
+
+
+        </script>
+    </head>
+</html>
