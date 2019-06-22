@@ -49,6 +49,16 @@
                 }
                 results.innerHTML = "User played " + playerSelection + " and the computer played " + computerSelection + ".";
                 score.innerHTML = "The user's score is " + userScore + " and the computer's score is " + computerScore + ".";
+                if (computerScore == 5) {
+                    score.innerHTML = "Computer wins! Scores reset";
+                    computerScore = 0;
+                    userScore = 0;
+                }
+                else if (userScore == 5) {
+                    score.innerHTML = "Player wins! Scores reset";
+                    computerScore = 0;
+                    userScore = 0;
+                }
 
             }
 
