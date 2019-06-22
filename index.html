@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
     <body>
-        <div>
-            <button id="rock">Rock</button>
-            <button id="paper">Paper</button>
-            <button id="scissors">Scissors</button>
-        </div>
+            <div id="buttons">
+                    <button id="rock">Rock</button>
+                    <button id="paper">Paper</button>
+                    <button id="scissors">Scissors</button>
+                    <p id="results"></p>
+                    <p id="score"></p>
+            </div>
     </body>
     <script>
             function computerPlay() { 
@@ -45,8 +47,8 @@
                     console.log("Computer wins!");
                     computerScore++;
                 }
-                console.log("User played " + playerSelection + " and the computer played " + computerSelection + ".");
-                console.log("The user's score is " + userScore + " and the computer's score is " + computerScore + ".");
+                results.innerHTML = "User played " + playerSelection + " and the computer played " + computerSelection + ".";
+                score.innerHTML = "The user's score is " + userScore + " and the computer's score is " + computerScore + ".";
 
             }
 
@@ -67,6 +69,7 @@
             const btnRock = document.querySelector("#rock");
             const btnPaper = document.querySelector("#paper");
             const btnScissors = document.querySelector("#scissors");
+            const results = document.querySelector("#results");
 
             btnRock.addEventListener("click", function () {
                 playRound("rock", computerPlay());
