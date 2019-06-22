@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <script>
+    <body>
+        <div>
+            <button id="rock">Rock</button>
+            <button id="paper">Paper</button>
+            <button id="scissors">Scissors</button>
+        </div>
+    </body>
+    <script>
             function computerPlay() { 
                 let num = Math.random();
                 if (num <= .33) {
@@ -40,6 +46,8 @@
                     computerScore++;
                 }
                 console.log("User played " + playerSelection + " and the computer played " + computerSelection + ".");
+                console.log("The user's score is " + userScore + " and the computer's score is " + computerScore + ".");
+
             }
 
 
@@ -50,20 +58,26 @@
 
 
 
-                while (userScore < 5 && computerScore < 5) {
-
                 const playerSelection = userPlay();
                 const computerSelection = computerPlay();
                 playRound(playerSelection, computerSelection);
 
-                console.log("The user's score is " + userScore + " and the computer's score is " + computerScore + ".");
-
                 }
-            }
 
-            game();
+            const btnRock = document.querySelector("#rock");
+            const btnPaper = document.querySelector("#paper");
+            const btnScissors = document.querySelector("#scissors");
 
+            btnRock.addEventListener("click", function () {
+                playRound("rock", computerPlay());
+            });
+            btnPaper.addEventListener("click", function () {
+                playRound("paper", computerPlay());
+            });
+            btnScissors.addEventListener("click", function () {
+                playRound("scissors", computerPlay());
+            });
+           // game();
 
         </script>
-    </head>
 </html>
